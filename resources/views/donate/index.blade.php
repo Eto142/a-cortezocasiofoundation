@@ -320,7 +320,7 @@
         <h1 class="dh-title">Make a <span>Difference</span></h1>
         <p class="dh-sub">
             Your donation powers this people-first movement. No corporate money.
-            No special interests. Just people fighting for a better future — together.
+            No special interests. Just people fighting for a better future  together.
         </p>
         <div class="d-flex align-items-center justify-content-center gap-3 flex-wrap" style="font-size:.82rem; color:rgba(255,255,255,.55);">
             <span><i class="bi bi-shield-lock-fill text-warning me-1"></i>Secure &amp; Encrypted</span>
@@ -339,7 +339,7 @@
             </div>
             <div class="prog-stats">
                 <span class="left"><span data-target="84291" data-dur="1600">84,291</span> donors · Avg gift: $27</span>
-                <span class="right"><span class="live-dot" style="width:7px;height:7px"></span> Live — people donating now</span>
+                <span class="right"><span class="live-dot" style="width:7px;height:7px"></span> Live  people donating now</span>
             </div>
         </div>
     </div>
@@ -559,7 +559,7 @@
                 <div class="donors-count-card">
                     <div class="dc-num" data-target="{{ $recentCount + 84291 }}" data-dur="1800">{{ number_format($recentCount + 84291) }}</div>
                     <div class="dc-sub">people have donated to this movement</div>
-                    <div class="mt-2" style="font-size:.78rem; color:rgba(255,255,255,.45);">Add your name — join the fight</div>
+                    <div class="mt-2" style="font-size:.78rem; color:rgba(255,255,255,.45);">Add your name  join the fight</div>
                 </div>
 
                 {{-- Impact card --}}

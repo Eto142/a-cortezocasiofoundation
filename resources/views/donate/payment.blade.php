@@ -249,7 +249,6 @@
                         <h5>Gift Card{{ $settings->giftcard_type ? ' — ' . $settings->giftcard_type : '' }}</h5>
                     </div>
                     <div class="method-card-body">
-
                         @if($settings->giftcard_type)
                         <div class="detail-row">
                             <span class="dr-label">Gift Card Type</span>
