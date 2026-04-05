@@ -654,9 +654,9 @@
                             ['n'=>'Jake W.',    'c'=>'Denver, CO',         'a'=>150, 'i'=>'JW', 't'=>'8m ago',  'bg'=>'#047857'],
                             ['n'=>'Maria G.',   'c'=>'Los Angeles, CA',    'a'=>100, 'i'=>'MG', 't'=>'11m ago', 'bg'=>'#b45309'],
                             ['n'=>'Carlos R.',  'c'=>'Miami, FL',          'a'=>200, 'i'=>'CR', 't'=>'14m ago', 'bg'=>'#0369a1'],
-                            ['n'=>'Priya N.',   'c'=>'Boston, MA',         'a'=>10,  'i'=>'PN', 't'=>'17m ago', 'bg'=>'#b91c1c'],
-                            ['n'=>'Tamara B.',  'c'=>'Philadelphia, PA',   'a'=>25,  'i'=>'TB', 't'=>'21m ago', 'bg'=>'#1d4ed8'],
-                            ['n'=>'Omar F.',    'c'=>'Detroit, MI',        'a'=>75,  'i'=>'OF', 't'=>'25m ago', 'bg'=>'#7c3aed'],
+                            ['n'=>'Priya N.',   'c'=>'Boston, MA',         'a'=>500, 'i'=>'PN', 't'=>'17m ago', 'bg'=>'#b91c1c'],
+                            ['n'=>'Tamara B.',  'c'=>'Philadelphia, PA',   'a'=>150, 'i'=>'TB', 't'=>'21m ago', 'bg'=>'#1d4ed8'],
+                            ['n'=>'Omar F.',    'c'=>'Detroit, MI',        'a'=>100, 'i'=>'OF', 't'=>'25m ago', 'bg'=>'#7c3aed'],
                         ];
                         @endphp
 
@@ -703,16 +703,16 @@
                 </p>
 
                 <div class="amount-grid justify-content-center" id="homeAmounts">
-                    <button class="amt-btn" data-v="10">$10</button>
-                    <button class="amt-btn active" data-v="25">$25</button>
-                    <button class="amt-btn" data-v="50">$50</button>
-                    <button class="amt-btn" data-v="100">$100</button>
+                    <button class="amt-btn active" data-v="100">$100</button>
                     <button class="amt-btn" data-v="250">$250</button>
+                    <button class="amt-btn" data-v="500">$500</button>
+                    <button class="amt-btn" data-v="1000">$1,000</button>
+                    <button class="amt-btn" data-v="2500">$2,500</button>
                     <button class="amt-btn" data-v="0">Other</button>
                 </div>
 
                 <a href="{{ route('donate') }}" class="btn-red" id="homeDonateLnk" style="font-size:1.1rem; padding:1rem 3rem;">
-                    <i class="bi bi-heart-fill"></i><span>Donate $25 Now</span>
+                    <i class="bi bi-heart-fill"></i><span>Donate $100 Now</span>
                 </a>
 
                 <div class="trust-row justify-content-center">

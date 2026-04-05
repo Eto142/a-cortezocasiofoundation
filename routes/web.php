@@ -9,3 +9,4 @@ Route::get('/profiles/{profile:slug}', [ProfileController::class, 'show'])->name
 
 Route::get('/donate',  [DonateController::class, 'show'])->name('donate');
 Route::post('/donate', [DonateController::class, 'store'])->name('donate.store');
+Route::get('/donate/payment/{donation}', [DonateController::class, 'payment'])->name('donate.payment');

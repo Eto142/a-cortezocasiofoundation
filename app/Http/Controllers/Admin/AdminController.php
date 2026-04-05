@@ -3,23 +3,28 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Profile;
-use Carbon\Carbon;
+use App\Models\Donation;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        $totalProfiles  = Profile::count();
-        $recentCount    = Profile::whereMonth('created_at', now()->month)
-                                 ->whereYear('created_at', now()->year)
-                                 ->count();
-        $recentProfiles = Profile::latest()->take(5)->get();
+        $totalDonations   = Donation::count();
+        $totalRaised      = Donation::sum('amount');
+        $pendingCount     = Donation::where('status', 'pending')->count();
+        $completedCount   = Donation::where('status', 'completed')->count();
+        $thisMonthRaised  = Donation::whereMonth('created_at', now()->month)
+                                    ->whereYear('created_at', now()->year)
+                                    ->sum('amount');
+        $recentDonations  = Donation::latest()->take(8)->get();
 
         return view('admin.dashboard', compact(
-            'totalProfiles',
-            'recentCount',
-            'recentProfiles',
+            'totalDonations',
+            'totalRaised',
+            'pendingCount',
+            'completedCount',
+            'thisMonthRaised',
+            'recentDonations',
         ));
     }
 }

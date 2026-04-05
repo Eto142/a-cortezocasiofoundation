@@ -189,20 +189,20 @@
 <!-- Sidebar -->
 <nav id="sidebar">
     <a href="{{ route('admin.dashboard') }}" class="brand">
-        Admin
+        AOC 2026 <span>Admin</span>
     </a>
 
-    <div class="nav-section">Main</div>
+    <div class="nav-section">Overview</div>
     <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
         <i class="bi bi-speedometer2"></i> Dashboard
     </a>
 
-    <div class="nav-section">Names & Writeups</div>
-    <a href="{{ route('admin.names.index') }}" class="nav-link {{ request()->routeIs('admin.names.index') ? 'active' : '' }}">
-        <i class="bi bi-person-lines-fill"></i> All Entries
+    <div class="nav-section">Donations</div>
+    <a href="{{ route('admin.donations.index') }}" class="nav-link {{ request()->routeIs('admin.donations.*') ? 'active' : '' }}">
+        <i class="bi bi-heart-fill"></i> All Donations
     </a>
-    <a href="{{ route('admin.names.create') }}" class="nav-link {{ request()->routeIs('admin.names.create') ? 'active' : '' }}">
-        <i class="bi bi-plus-circle"></i> Add New Name
+    <a href="{{ route('admin.payment.edit') }}" class="nav-link {{ request()->routeIs('admin.payment.*') ? 'active' : '' }}">
+        <i class="bi bi-credit-card"></i> Payment Settings
     </a>
 
     <div class="sidebar-footer">

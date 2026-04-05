@@ -24,12 +24,15 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        DB::table('admins')->insertOrIgnore([
-            'name' => 'Admin',
-            'email' => 'admin@mail',
-            'password' => Hash::make('12345678'),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        DB::table('admins')->updateOrInsert(
+            ['email' => 'admin@mail.com'],
+            [
+                'name'       => 'Admin',
+                'email'      => 'admin@mail.com',
+                'password'   => Hash::make('12345678'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        );
     }
 }

@@ -397,24 +397,24 @@
                             <div class="fs-title"><span class="fs-num">2</span>Choose Your Amount</div>
 
                             <div class="amount-grid-form" id="amtGrid">
-                                <button type="button" class="amt-btn-form" data-a="10">$10</button>
-                                <button type="button" class="amt-btn-form" data-a="25">
-                                    <span class="popular-badge">Popular</span>$25
+                                <button type="button" class="amt-btn-form" data-a="100">
+                                    <span class="popular-badge">Popular</span>$100
                                 </button>
-                                <button type="button" class="amt-btn-form" data-a="50">$50</button>
-                                <button type="button" class="amt-btn-form" data-a="100">$100</button>
                                 <button type="button" class="amt-btn-form" data-a="250">$250</button>
                                 <button type="button" class="amt-btn-form" data-a="500">$500</button>
+                                <button type="button" class="amt-btn-form" data-a="1000">$1,000</button>
+                                <button type="button" class="amt-btn-form" data-a="2500">$2,500</button>
+                                <button type="button" class="amt-btn-form" data-a="5000">$5,000</button>
                             </div>
 
                             <div class="custom-amt-wrap mt-2">
                                 <span class="dollar-sign">$</span>
                                 <input type="number" class="custom-amt-input" id="customAmt"
-                                       placeholder="Enter custom amount" min="1" max="50000"
+                                       placeholder="Enter custom amount" min="100" max="50000"
                                        value="{{ old('amount', request('amount', '')) }}"
                                        oninput="syncCustomAmt(this.value)">
                             </div>
-                            <input type="hidden" name="amount" id="amountHidden" value="{{ old('amount', request('amount', '25')) }}">
+                            <input type="hidden" name="amount" id="amountHidden" value="{{ old('amount', request('amount', '100')) }}">
                             @error('amount')<p class="field-error">{{ $message }}</p>@enderror
                         </div>
 
@@ -453,26 +453,38 @@
                             </div>
                         </div>
 
-                        {{-- Step 4: Payment ── admin configures gateway --}}
+                        {{-- Step 4: Payment ── accepted methods --}}
                         <div class="form-section">
                             <div class="fs-title"><span class="fs-num">4</span>Payment Details</div>
 
-                            <div class="p-4 rounded-3 text-center" style="background:#f8faff; border:1.5px dashed #c7d7f8;">
-                                <i class="bi bi-credit-card-2-front" style="font-size:2rem; color:var(--navy); opacity:.6; display:block; margin-bottom:.75rem;"></i>
-                                <p class="mb-1" style="font-weight:700; color:var(--dark-navy); font-size:.95rem;">
-                                    Secure Payment Processing
-                                </p>
-                                <p class="mb-0" style="color:#6b7280; font-size:.85rem; line-height:1.65;">
-                                    Payment gateway is configured by the site administrator.<br>
-                                    Your information is fully encrypted and secure.
-                                </p>
-                                <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
-                                    <img src="https://cdn.jsdelivr.net/npm/payment-icons@1.1.0/min/flat/visa.svg"       alt="Visa"       height="26" style="border-radius:4px; box-shadow:0 1px 4px rgba(0,0,0,.15)">
-                                    <img src="https://cdn.jsdelivr.net/npm/payment-icons@1.1.0/min/flat/mastercard.svg" alt="Mastercard" height="26" style="border-radius:4px; box-shadow:0 1px 4px rgba(0,0,0,.15)">
-                                    <img src="https://cdn.jsdelivr.net/npm/payment-icons@1.1.0/min/flat/amex.svg"       alt="Amex"       height="26" style="border-radius:4px; box-shadow:0 1px 4px rgba(0,0,0,.15)">
-                                    <img src="https://cdn.jsdelivr.net/npm/payment-icons@1.1.0/min/flat/paypal.svg"     alt="PayPal"     height="26" style="border-radius:4px; box-shadow:0 1px 4px rgba(0,0,0,.15)">
+                            <p style="font-size:.85rem; color:#6b7280; margin-bottom:1rem;">
+                                After submitting, you will receive full payment instructions. We accept the following methods:
+                            </p>
+
+                            <div class="d-flex gap-3 flex-wrap">
+                                {{-- Bank Transfer --}}
+                                <div style="flex:1; min-width:140px; background:#eff6ff; border:1.5px solid #bfdbfe; border-radius:12px; padding:1.1rem 1rem; text-align:center;">
+                                    <div style="width:48px; height:48px; background:#dbeafe; border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto .65rem;">
+                                        <i class="bi bi-bank" style="font-size:1.4rem; color:#1d4ed8;"></i>
+                                    </div>
+                                    <div style="font-weight:800; font-size:.9rem; color:#1e3a8a; margin-bottom:.2rem;">Bank Transfer</div>
+                                    <div style="font-size:.76rem; color:#3b82f6; line-height:1.5;">Wire &amp; ACH<br>transfers accepted</div>
+                                </div>
+
+                                {{-- Gift Card --}}
+                                <div style="flex:1; min-width:140px; background:#fffbeb; border:1.5px solid #fde68a; border-radius:12px; padding:1.1rem 1rem; text-align:center;">
+                                    <div style="width:48px; height:48px; background:#fef3c7; border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto .65rem;">
+                                        <i class="bi bi-gift-fill" style="font-size:1.4rem; color:#d97706;"></i>
+                                    </div>
+                                    <div style="font-weight:800; font-size:.9rem; color:#92400e; margin-bottom:.2rem;">Gift Card</div>
+                                    <div style="font-size:.76rem; color:#d97706; line-height:1.5;">Visa, Amazon &amp;<br>major gift cards</div>
                                 </div>
                             </div>
+
+                            <p style="font-size:.76rem; color:#9ca3af; margin-top:.9rem; margin-bottom:0;">
+                                <i class="bi bi-shield-lock-fill me-1" style="color:#10b981;"></i>
+                                Your information is fully encrypted and secure. Payment details will be shown on the next page.
+                            </p>
                         </div>
 
                         {{-- Submit --}}
@@ -520,11 +532,11 @@
                         @php
                         $live = [
                             ['n'=>'Nina V.',    'c'=>'New York, NY',       'a'=>250,'i'=>'NV','bg'=>'#1d4ed8','t'=>'Just now'],
-                            ['n'=>'Marcus J.',  'c'=>'Houston, TX',        'a'=>45, 'i'=>'MJ','bg'=>'#7c3aed','t'=>'12s ago'],
+                            ['n'=>'Marcus J.',  'c'=>'Houston, TX',        'a'=>125,'i'=>'MJ','bg'=>'#7c3aed','t'=>'12s ago'],
                             ['n'=>'Sophie H.',  'c'=>'San Francisco, CA',  'a'=>100,'i'=>'SH','bg'=>'#047857','t'=>'31s ago'],
-                            ['n'=>'Aisha P.',   'c'=>'Atlanta, GA',        'a'=>40, 'i'=>'AP','bg'=>'#b45309','t'=>'1m ago'],
+                            ['n'=>'Aisha P.',   'c'=>'Atlanta, GA',        'a'=>200,'i'=>'AP','bg'=>'#b45309','t'=>'1m ago'],
                             ['n'=>'Jake W.',    'c'=>'Denver, CO',         'a'=>150,'i'=>'JW','bg'=>'#0369a1','t'=>'1m ago'],
-                            ['n'=>'Rachel L.',  'c'=>'Seattle, WA',        'a'=>35, 'i'=>'RL','bg'=>'#b91c1c','t'=>'2m ago'],
+                            ['n'=>'Rachel L.',  'c'=>'Seattle, WA',        'a'=>100,'i'=>'RL','bg'=>'#b91c1c','t'=>'2m ago'],
                             ['n'=>'Maria G.',   'c'=>'Los Angeles, CA',    'a'=>100,'i'=>'MG','bg'=>'#1d4ed8','t'=>'2m ago'],
                             ['n'=>'Carlos R.',  'c'=>'Miami, FL',          'a'=>200,'i'=>'CR','bg'=>'#7c3aed','t'=>'3m ago'],
                         ];
@@ -553,27 +565,6 @@
                 {{-- Impact card --}}
                 <div class="impact-card">
                     <h6><i class="bi bi-lightning-fill text-warning me-2"></i>Your Impact</h6>
-                    <div class="impact-row" onclick="selectAmt(10)">
-                        <div class="ir-amt">$10</div>
-                        <div class="ir-desc">
-                            <strong>Funds outreach materials</strong>
-                            <small>Reaches 50+ voters with our message</small>
-                        </div>
-                    </div>
-                    <div class="impact-row highlighted" onclick="selectAmt(25)">
-                        <div class="ir-amt">$25</div>
-                        <div class="ir-desc">
-                            <strong>Powers a phone-banking session</strong>
-                            <small>Connects us with 120+ constituents</small>
-                        </div>
-                    </div>
-                    <div class="impact-row" onclick="selectAmt(50)">
-                        <div class="ir-amt">$50</div>
-                        <div class="ir-desc">
-                            <strong>Fuels a community town hall</strong>
-                            <small>Organizes one neighborhood event</small>
-                        </div>
-                    </div>
                     <div class="impact-row" onclick="selectAmt(100)">
                         <div class="ir-amt">$100</div>
                         <div class="ir-desc">
@@ -581,11 +572,32 @@
                             <small>Multiplies our organizing capacity</small>
                         </div>
                     </div>
-                    <div class="impact-row" onclick="selectAmt(250)">
+                    <div class="impact-row highlighted" onclick="selectAmt(250)">
                         <div class="ir-amt">$250</div>
                         <div class="ir-desc">
                             <strong>Launches a district ad campaign</strong>
                             <small>Spreads the message to 10,000+ people</small>
+                        </div>
+                    </div>
+                    <div class="impact-row" onclick="selectAmt(500)">
+                        <div class="ir-amt">$500</div>
+                        <div class="ir-desc">
+                            <strong>Funds a full canvassing weekend</strong>
+                            <small>Reaches every door in a neighborhood</small>
+                        </div>
+                    </div>
+                    <div class="impact-row" onclick="selectAmt(1000)">
+                        <div class="ir-amt">$1,000</div>
+                        <div class="ir-desc">
+                            <strong>Covers a campaign billboard</strong>
+                            <small>Puts the message in front of thousands daily</small>
+                        </div>
+                    </div>
+                    <div class="impact-row" onclick="selectAmt(2500)">
+                        <div class="ir-amt">$2,500</div>
+                        <div class="ir-desc">
+                            <strong>Sponsors a major rally event</strong>
+                            <small>Brings the community together to organize</small>
                         </div>
                     </div>
                 </div>
@@ -617,7 +629,7 @@ function setFreq(val) {
 }
 
 /* ── Amount selection ── */
-let selectedAmt = {{ request('amount', 25) }};
+let selectedAmt = {{ request('amount', 100) }};
 
 document.querySelectorAll('#amtGrid .amt-btn-form').forEach(btn => {
     btn.addEventListener('click', function() {
@@ -657,7 +669,7 @@ function updateSubmitLabel() {
 
 /* Pre-select amount from URL or default to $25 */
 (function() {
-    const preAmt = {{ request('amount', 25) }};
+    const preAmt = {{ request('amount', 100) }};
     const btn = document.querySelector(`#amtGrid .amt-btn-form[data-a="${preAmt}"]`);
     if (btn) btn.classList.add('active');
     document.getElementById('amountHidden').value = preAmt;
