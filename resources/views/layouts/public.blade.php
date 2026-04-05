@@ -412,12 +412,12 @@
 
     /* ── Donor pool ── */
     const DONORS = [
-        { name: 'Sarah M.',   city: 'Brooklyn, NY',      amount: 25,  initials: 'SM' },
-        { name: 'James T.',   city: 'Chicago, IL',       amount: 50,  initials: 'JT' },
+        { name: 'Sarah M.',   city: 'Brooklyn, NY',      amount: 100, initials: 'SM' },
+        { name: 'James T.',   city: 'Chicago, IL',       amount: 100, initials: 'JT' },
         { name: 'Maria G.',   city: 'Los Angeles, CA',   amount: 100, initials: 'MG' },
-        { name: 'David K.',   city: 'Austin, TX',        amount: 15,  initials: 'DK' },
-        { name: 'Rachel L.',  city: 'Seattle, WA',       amount: 35,  initials: 'RL' },
-        { name: 'James T.',    city: 'Chicago, IL',        amount: 250,  initials: 'JT' },
+        { name: 'David K.',   city: 'Austin, TX',        amount: 150, initials: 'DK' },
+        { name: 'Rachel L.',  city: 'Seattle, WA',       amount: 100, initials: 'RL' },
+        { name: 'Denise T.',  city: 'Chicago, IL',       amount: 250, initials: 'DT' },
         { name: 'Ashley R.',  city: 'Austin, TX',         amount: 150,  initials: 'AR' },
         { name: 'Brandon K.', city: 'Seattle, WA',        amount: 500,  initials: 'BK' },
         { name: 'Michelle D.', city: 'Denver, CO',        amount: 100,  initials: 'MD' },
@@ -470,7 +470,7 @@
                 <p class="t-name">${d.name} <span style="color:#9ca3af;font-weight:400">from</span> ${d.city}</p>
                 <p class="t-sub"><span class="live-dot" style="width:6px;height:6px"></span>&nbsp;just donated</p>
             </div>
-            <span class="t-amount">$${d.amount}</span>
+            <span class="t-amount">$${d.amount.toLocaleString()}</span>
             <button class="t-close" onclick="dismissToast(this)" aria-label="Close">×</button>
         `;
         toastStack.prepend(el);

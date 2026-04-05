@@ -698,7 +698,7 @@ window.liveFeed = {
                 <div class="ar-name">${d.name}</div>
                 <div class="ar-loc"><i class="bi bi-geo-alt-fill me-1" style="font-size:.62rem"></i>${d.city}</div>
             </div>
-            <span class="ar-amt">$${d.amount}</span>
+            <span class="ar-amt">$${d.amount.toLocaleString()}</span>
             <span class="ar-ago">Just now</span>
         `;
         feed.prepend(el);
